@@ -1,0 +1,26 @@
+doctype=html
+head
+  title Basic Blog
+  h4(style='margin-left: 10%') Articles
+  p(style='margin-left: 10%') Liste des articles
+  p(style='margin-left: 10%')
+    a(href="/post/create") Ajouter
+  link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
+
+  body
+    #table-wrapper
+    table(class="table", style='width:80%', border='1', align='center')
+      tr
+       th Titre
+       th Date
+       th Auteur
+       th Resumé
+       th Contenu
+      each val in articles
+        tr
+          td
+            a(href="post/" + val._id) #{val['titre']}
+          td #{val['date']}
+          td #{val['auteur']}
+          td #{val['résumé']}
+          td #{val['contenu']}
