@@ -1,13 +1,15 @@
 module.exports = function(app) {
 
-  //rediection sur le formulaire de création
-  app.get("/post/create", function(req, res) {
-    res.render("creerarticle.html");
-  });
-
-  //récupération du formulaire et insertion en BDD
-  app.post("/post/created", function(req, res) {
-      console.log(req.body);
+  //rediection sur le formulaire de création si la request est vide sinon insérer en BDD
+  app.post("/post/create", function(req, res) {
+    console.log(req.body);
+    if(Object.keys(req.body).length === 0) //On vérifie si la request est vide
+    {
+      res.render("creerarticle.html");
+    }
+    else
+    {
+      //récupération du formulaire et insertion en BDD
       getNextSequence("articleid", function(err, result){
           console.log("ID : " + result);
           app.db.collection('articles').insert({
@@ -20,12 +22,13 @@ module.exports = function(app) {
             });
       });
       res.redirect("/");
+    }
   });
 
-  //suppression d'un article par id
-  app.get("/post/supprimer/:id", function(req, res) {
+  //suppression d'un article par id avec post sinon on pourrais supprimer un article en passant l'id en paramètre dans l'URL
+  app.post("/post/supprimer", function(req, res) {
 
-    var id = parseInt(req.params.id, 10);
+    var id = parseInt(req.body.id, 10);
     var name = "_id";
     var query = {};
     query[name] = id;

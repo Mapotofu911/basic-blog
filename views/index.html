@@ -6,9 +6,9 @@ head
   div(class="jumbotron")
     h1(style="margin-left: 8%; margin-top: 2%") Articles
     p(style='margin-left: 8%') Liste des articles
-  p(style='margin-left: 10%')
-    a(href="/post/create") 
-      button(type='button' class='btn btn-primary') Ajouter
+  div(style='margin-left: 10%')
+    form(action='/post/create', method='POST')
+      button(class='btn btn-primary', type='submit') Ajouter
 
   body
     #table-wrapper

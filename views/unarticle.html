@@ -17,7 +17,9 @@ each val in articles
       p #{val['contenu']}
 
       div
-        a(href="/post/supprimer/" + val._id) 
-          button(type='button' class='btn btn-danger') Supprimer
-        a(href="/") 
-          button(type='button' class='btn btn-primary') Retour
+      form(action='/post/supprimer', method='POST')
+        input(type="hidden", value=val._id, name='id')
+        p
+          button(class='btn btn-primary', type='submit') Supprimer
+          a(href="/") 
+            button(type='button' class='btn btn-primary') Retour
