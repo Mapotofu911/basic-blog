@@ -4,18 +4,20 @@ link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/c
 head
   title Consulter
   div(class="jumbotron")
-   h4 Titre : #{articles[0].titre}
+    h1(style="margin-left: 8%; margin-top: 2%") Titre : #{articles[0].titre}
 
 each val in articles
   body
     div(style='width:80%; margin-left: 10%')
-      p Auteur : #{val['auteur']}
-      p Résumé : #{val['résumé']}
-      p Contenu
+      b Auteur : #{val['auteur']}
+      p
+      b Résumé : #{val['résumé']}
+      p
+      b Contenu :
       p #{val['contenu']}
 
       div
         a(href="/post/supprimer/" + val._id) 
-          button(type='button' class='btn btn-primary') Supprimer
+          button(type='button' class='btn btn-danger') Supprimer
         a(href="/") 
           button(type='button' class='btn btn-primary') Retour
