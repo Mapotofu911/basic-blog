@@ -21,12 +21,12 @@ describe("test blog index endpoint", function() {
       .expect(200)
       .end(done);
 });
-  it("should have the posts table \"Basic Blog\"", function(done) {
+  it("should have the posts table", function(done) {
       supertest(app)
       .get("/")
       .set("User-Agent", "API testing")
       .expect(function(res) {
-        assert(res.text.includes("<table>.*</table>"));
+        assert(res.text.includes("<table.*>.*</table>"));
       })
       .expect(200)
       .end(done);

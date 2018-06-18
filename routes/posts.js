@@ -2,7 +2,7 @@ module.exports = function(app) {
 
   //rediection sur le formulaire de création
   app.get("/post/create", function(req, res) {
-    res.render("creerarticle");
+    res.render("creerarticle.html");
   });
 
   //récupération du formulaire et insertion en BDD
