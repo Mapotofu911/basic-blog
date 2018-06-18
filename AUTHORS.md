@@ -1,4 +1,4 @@
 Auteurs
 
 Collingwood - Whittick Raphaël
-Mail : collingwood.raphael@gmail.com
+- Mail : collingwood.raphael@gmail.com
