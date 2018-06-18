@@ -1,10 +1,9 @@
 doctype=html
 head
-  h4 Ajouter un article
-  link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
+    h4 Ajouter un article
 
-  body
-
+body
     form(action='/post/created', method='POST')
         div.form-group
             label Titre :
@@ -24,3 +23,4 @@ head
             input(type='text', name='contenu', required)
         div.form-group 
             button(class='btn', type='submit') Ajouter
+        

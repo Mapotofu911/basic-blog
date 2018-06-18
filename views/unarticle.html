@@ -1,13 +1,21 @@
 doctype=html
+link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
+
 head
+  title Consulter
+  div(class="jumbotron")
+   h4 Titre : #{articles[0].titre}
+
 each val in articles
-  h4 Titre : #{val['titre']}
-  link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
-
   body
-    p Auteur : #{val['auteur']}
-    p Résumé : #{val['résumé']}
-    p Contenu
-    p #{val['contenu']}
+    div(style='width:80%; margin-left: 10%')
+      p Auteur : #{val['auteur']}
+      p Résumé : #{val['résumé']}
+      p Contenu
+      p #{val['contenu']}
 
-    a(href="/post/supprimer/" + val._id) Supprimer
+      div
+        a(href="/post/supprimer/" + val._id) 
+          button(type='button' class='btn btn-primary') Supprimer
+        a(href="/") 
+          button(type='button' class='btn btn-primary') Retour

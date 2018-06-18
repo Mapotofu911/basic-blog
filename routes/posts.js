@@ -9,7 +9,7 @@ module.exports = function(app) {
   app.post("/post/created", function(req, res) {
       console.log(req.body);
       getNextSequence("articleid", function(err, result){
-          console.log("hi : " + result);
+          console.log("ID : " + result);
           app.db.collection('articles').insert({
               "_id": result,
               "date": new Date().toISOString(),
