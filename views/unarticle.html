@@ -4,22 +4,24 @@ link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/c
 head
   title Consulter
   div(class="jumbotron")
-    h1(style="margin-left: 8%; margin-top: 2%") Titre : #{articles[0].titre}
+    each val in articles
+      h1(style="margin-left: 8%; margin-top: 2%") Titre : #{val['titre']}
 
-each val in articles
+
   body
-    div(style='width:80%; margin-left: 10%')
-      b Auteur : #{val['auteur']}
-      p
-      b Résumé : #{val['résumé']}
-      p
-      b Contenu :
-      p #{val['contenu']}
-
-      div
-      form(action='/post/supprimer', method='POST')
-        input(type="hidden", value=val._id, name='id')
+    each val in articles
+      div(style='width:80%; margin-left: 10%')
+        b Auteur : #{val['auteur']}
         p
-          button(class='btn btn-primary', type='submit') Supprimer
-          a(href="/") 
-            button(type='button' class='btn btn-primary') Retour
+        b Résumé : #{val['résumé']}
+        p
+        b Contenu :
+        p #{val['contenu']}
+
+        div
+        form(action='/post/supprimer', method='POST')
+          input(type="hidden", value=val._id, name='id')
+          p
+            button(class='btn btn-primary', type='submit') Supprimer
+            a(href="/") 
+              button(type='button' class='btn btn-primary') Retour

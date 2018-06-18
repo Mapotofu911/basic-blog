@@ -3,10 +3,10 @@ var supertest = require("supertest");
 var assert = require("chai").assert;
 
 describe("test blog create endpoint", function() {
-  describe("GET /post/create", function() {
+  describe("POST /post/create", function() {
     it("should have content-type text/html", function(done) {
       supertest(app)
-        .get("/post/create")
+        .post("/post/create")
         .set("User-Agent", "API testing")
         .expect("Content-Type", "text/html; charset=utf-8")
         .expect(200)
@@ -14,7 +14,7 @@ describe("test blog create endpoint", function() {
     });
     it("should have a form!", function(done) {
       supertest(app)
-        .get("/post/create")
+        .post("/post/create")
         .set("User-Agent", "API testing")
         .expect(function(res) {
           console.log(res.text);
@@ -25,7 +25,7 @@ describe("test blog create endpoint", function() {
     });
     it("should have a button!", function(done) {
       supertest(app)
-        .get("/post/create")
+        .post("/post/create")
         .set("User-Agent", "API testing")
         .expect(function(res) {
           console.log(res.text);
