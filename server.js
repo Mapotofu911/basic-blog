@@ -5,7 +5,7 @@ var cons = require('consolidate');
 
 var app = express();
 var url = process.env.URL || "mongodb://localhost:27017/";
-var dbName = process.env.DBNAME || "test";
+var dbName = process.env.DBNAME || "blog";
 var port = process.env.PORT || 8000;
 
 app.engine('html', cons.pug);
